@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RaroLab.Cep.Domain\RaroLab.Cep.Domain.csproj" />
+    <ProjectReference Include="..\RaroLab.Cep.Infra\RaroLab.Cep.Infra.csproj" />
   </ItemGroup>
 
 </Project>
