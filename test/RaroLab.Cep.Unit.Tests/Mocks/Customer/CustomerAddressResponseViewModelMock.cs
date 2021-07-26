@@ -9,12 +9,15 @@ namespace RaroLab.Cep.Unit.Tests.Mocks.Customer
             new Faker<CustomerAddressResponseViewModel>()
             .CustomInstantiator(x => new CustomerAddressResponseViewModel
             {
-                ZipCode = x.Address.ZipCode("#####-###"),
+                ZipCode = ZipCodeFormatedFaker,
                 Address = x.Address.StreetAddress(false),
                 Complement = x.Random.Words(3),
                 District = x.Address.City(),
                 Location = x.Address.State(),
                 FU = x.Address.StateAbbr()
             });
+
+        public static Faker<string> ZipCodeFormatedFaker => new Faker<string>().CustomInstantiator(x => x.Address.ZipCode("#####-###"));
+        public static Faker<string> ZipCodeUnformatedFaker => new Faker<string>().CustomInstantiator(x => x.Address.ZipCode("########"));
     }
 }
