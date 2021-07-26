@@ -18,7 +18,8 @@ namespace RaroLab.Cep.Infra.Services
         public async Task<ViaCepAddressResponseModel> GetAddressAsync(string zipCode)
         {
             var response = await _httpClient.GetAsync($"{zipCode}/json/");
-            return JsonSerializer.Deserialize<ViaCepAddressResponseModel>(await response.Content.ReadAsStringAsync(), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<ViaCepAddressResponseModel>(stringResponse, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
     }
 }

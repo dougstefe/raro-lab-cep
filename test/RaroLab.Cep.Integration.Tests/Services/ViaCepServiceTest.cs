@@ -41,7 +41,7 @@ namespace RaroLab.Cep.Integration.Tests.Services
                 BaseAddress = new Uri(httpClientMock)
             };
             var viaCepService = new ViaCepService(httpClient);
-            var method = viaCepService.GetAddressAsync(zipCodeMock);
+            var method = await viaCepService.GetAddressAsync(zipCodeMock);
             Assert.IsType<ViaCepAddressResponseModel>(method);
         }
     }
