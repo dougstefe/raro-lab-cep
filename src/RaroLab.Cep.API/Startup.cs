@@ -1,23 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RaroLab.Cep.API.Services;
 using RaroLab.Cep.API.Services.Interfaces;
+using RaroLab.Cep.API.Swagger;
 using RaroLab.Cep.Domain.Interfaces;
 using RaroLab.Cep.Infra.Services;
+using System;
+using System.Net.Http.Headers;
 
+[assembly: ApiConventionType(typeof(MyApiConventions))]
 namespace RaroLab.Cep.API
 {
     public class Startup
@@ -38,6 +36,8 @@ namespace RaroLab.Cep.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RaroLab.Cep.API", Version = "v1" });
             });
+            services.AddAutoMapper(typeof(Startup));
+            services.AddHttpContextAccessor();
             RegisterServices(services);
         }
 
@@ -65,7 +65,7 @@ namespace RaroLab.Cep.API
 
         private void RegisterServices(IServiceCollection services)
         {
-            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IAddressService, AddressService>();
 
             services.AddHttpClient<IViaCepService, ViaCepService>((s, c) =>
             {
