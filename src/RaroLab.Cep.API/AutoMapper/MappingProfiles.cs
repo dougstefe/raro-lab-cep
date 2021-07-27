@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using RaroLab.Cep.API.ViewModels;
 using RaroLab.Cep.Domain.Models.Services.ViaCep;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RaroLab.Cep.API.AutoMapper
 {
@@ -12,9 +8,9 @@ namespace RaroLab.Cep.API.AutoMapper
     {
         public MappingProfiles()
         {
-            #region Customer
+            #region Address
 
-            CreateMap<ViaCepAddressResponseModel, CustomerAddressResponseViewModel>()
+            CreateMap<ViaCepAddressResponseModel, AddressResponseViewModel>()
                 .ForMember(
                     dest => dest.Address,
                     opts => opts.MapFrom(src => src.Logradouro))

@@ -3,11 +3,11 @@ using RaroLab.Cep.API.ViewModels;
 
 namespace RaroLab.Cep.Unit.Tests.Mocks.Customer
 {
-    public class CustomerAddressResponseViewModelMock
+    public class AddressResponseViewModelMock
     {
-        public static Faker<CustomerAddressResponseViewModel> CustomerAddressResponseViewModelFaker =>
-            new Faker<CustomerAddressResponseViewModel>()
-            .CustomInstantiator(x => new CustomerAddressResponseViewModel
+        public static Faker<AddressResponseViewModel> AddressResponseViewModelFaker =>
+            new Faker<AddressResponseViewModel>()
+            .CustomInstantiator(x => new AddressResponseViewModel
             {
                 ZipCode = ZipCodeFormatedFaker,
                 Address = x.Address.StreetAddress(false),

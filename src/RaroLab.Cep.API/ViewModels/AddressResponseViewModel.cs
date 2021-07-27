@@ -1,6 +1,6 @@
 ﻿namespace RaroLab.Cep.API.ViewModels
 {
-    public class CustomerAddressResponseViewModel
+    public class AddressResponseViewModel
     {
         public string ZipCode { get; set; }
         public string Address { get; set; }

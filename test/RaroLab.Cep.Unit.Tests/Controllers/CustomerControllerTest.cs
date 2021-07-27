@@ -8,11 +8,11 @@ namespace RaroLab.Cep.Unit.Tests.Controllers
 {
     public class CustomerControllerTest
     {
-        private readonly Mock<ICustomerService> _customerService;
+        private readonly Mock<IAddressService> _customerService;
 
         public CustomerControllerTest()
         {
-            _customerService = new Mock<ICustomerService>();
+            _customerService = new Mock<IAddressService>();
         }
 
     }

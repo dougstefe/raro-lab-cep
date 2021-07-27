@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace RaroLab.Cep.API.Services.Interfaces
 {
-    public interface ICustomerService
+    public interface IAddressService
     {
-        Task<CustomerAddressResponseViewModel> GetAddressByZipCodeAsync(string zipCode);
+        Task<AddressResponseViewModel> GetAddressByZipCodeAsync(string zipCode);
     }
 }

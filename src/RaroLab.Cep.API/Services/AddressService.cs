@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace RaroLab.Cep.API.Services
 {
-    public class CustomerService : ICustomerService
+    public class AddressService : IAddressService
     {
         private readonly IViaCepService _viaCepService;
         private readonly IMapper _mapper;
 
-        public CustomerService(IViaCepService viaCepService, IMapper mapper)
+        public AddressService(IViaCepService viaCepService, IMapper mapper)
         {
             _viaCepService = viaCepService;
             _mapper = mapper;
         }
 
-        public async Task<CustomerAddressResponseViewModel> GetAddressByZipCodeAsync(string zipCode)
+        public async Task<AddressResponseViewModel> GetAddressByZipCodeAsync(string zipCode)
         {
             var response = await _viaCepService.GetAddressAsync(zipCode);
             if (!response.Erro)
             {
-                return _mapper.Map<CustomerAddressResponseViewModel>(response);
+                return _mapper.Map<AddressResponseViewModel>(response);
             }
             return null;
         }
